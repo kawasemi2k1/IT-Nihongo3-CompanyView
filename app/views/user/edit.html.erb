@@ -1,2 +1,19 @@
-<h1>User#edit</h1>
-<p>Find me in app/views/user/edit.html.erb</p>
+<h1>Editing User</h1>
+<%= form_for :user, url: "/user/update", action: :update, method: :put  do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br><br>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+    <br><br>
+    <%= f.label :age %>
+    <%= f.number_field :age %>
+    <br><br>
+    <%= f.label :avatar %>
+     <% if current_user.avatar.attached? %>
+           <%= image_tag current_user.avatar %>
+     <% end %>
+    <%= f.file_field :avatar %>
+    <br><br>
+    <%= f.submit "Update Account" %>
+<% end %>
