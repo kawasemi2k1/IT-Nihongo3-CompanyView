@@ -1,2 +1,17 @@
-<h1>User#show</h1>
-<p>Find me in app/views/user/show.html.erb</p>
+<h1>プロフィール</h1>
+
+<p>
+ <% if current_user.avatar.attached? %>
+   <%= image_tag current_user.avatar %>
+ <% end %>
+</p>
+
+<h3>名前：
+  <%= current_user.name %>
+</h3>
+
+<h3>年齢：
+  <%= current_user.age %>
+</h3>
+
+<a href="/user/edit">Edit Profile</a>
