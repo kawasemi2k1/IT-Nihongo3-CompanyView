@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @company.name %>
+</p>
+
+<p>
+  <strong>Programming langue:</strong>
+  <%= @company.programming_langue %>
+</p>
+
+<p>
+  <strong>Vacancy:</strong>
+  <%= @company.vacancy %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @company.location %>
+</p>
+
+<p>
+  <strong>Website link:</strong>
+  <%= @company.website_link %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @company.description %>
+</p>
+
+<%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Back', companies_path %>
