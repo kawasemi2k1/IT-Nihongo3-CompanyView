@@ -17,12 +17,12 @@
         <td><%= company.name %></td>
         <td><%= company.location %></td>
         <td><a href=<%= company.website_link %> class="link-primary link-white-1"><%= company.website_link %></a></td>
-        <% if user_signed_in? %>
+        <% if current_user && current_user.admin%>
         <td><%= link_to 'Show', company %></td>
-         <% else %>
-         <td><%= link_to 'Show', company %></td>
         <td><%= link_to 'Edit', edit_company_path(company) %></td>
         <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         <% else %>
+         <td><%= link_to 'Show', company %></td>
          <% end %>
       </tr>
        

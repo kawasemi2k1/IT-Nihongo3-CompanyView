@@ -13,7 +13,9 @@
       <% if user_signed_in? %>
       <p>こんにちは, <%= link_to current_user.name, user_show_path %></p>
       <%= link_to "会社表示", companies_path  %>
-     
+         <% if current_user && current_user.admin%>
+             <a href="/admin/index">Admin page</a>
+         <% end %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to "サインイン", new_user_session_path %>
