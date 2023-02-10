@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>会社</h1>
+<table class="table table-hover">
+  <thead class="">
+    <tr>
+      <th>名</th>
+      <th>場所</th>
+      <th>ウェブサイトリンク</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @companies.each do |company| %>
+      <tr>
+        <td><%= company.name %></td>
+        <td><%= company.location %></td>
+        <td><a href=<%= company.website_link %> class="link-primary link-white-1"><%= company.website_link %></a></td>
+        <% if user_signed_in? %>
+        <td><%= link_to 'Show', company %></td>
+         <% else %>
+         <td><%= link_to 'Show', company %></td>
+        <td><%= link_to 'Edit', edit_company_path(company) %></td>
+        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         <% end %>
+      </tr>
+       
+    <% end %>
+  </tbody>
+</table>
+
+<br>
