@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :companies_reviews
   get 'admin/index'
   get 'user/index'
   get 'user/show'

@@ -7,9 +7,9 @@ class CompaniesController < ApplicationController
   end
 
   # GET /companies/1 or /companies/1.json
-  def show
+def show
+      @companies_review = CompaniesReview.new
   end
-
   # GET /companies/new
   def new
     @company = Company.new

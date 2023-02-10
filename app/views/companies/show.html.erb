@@ -29,6 +29,16 @@
   <strong>Description:</strong>
   <%= @company.description %>
 </p>
+<h2>Review Form</h2>
+ <%= form_with(model: @companies_review, local:true) do |form| %>
+ <div class="field">
+    <%= form.text_area:review %>
+    <%= form.hidden_field :companies_id, :value => @company.id %>
+ </div>
+ <div class="actions">
+     <%= form.submit %>
+ </div>
+ <% end %>
 <% if user_signed_in? %>
 <%= link_to 'Back', companies_path %>
  <% else %>

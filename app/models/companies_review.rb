@@ -1,0 +1,2 @@
+class CompaniesReview < ApplicationRecord
+end
