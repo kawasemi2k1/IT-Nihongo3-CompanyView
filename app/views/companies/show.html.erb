@@ -29,6 +29,9 @@
   <strong>Description:</strong>
   <%= @company.description %>
 </p>
-
+<% if user_signed_in? %>
+<%= link_to 'Back', companies_path %>
+ <% else %>
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>
+ <% end %>
