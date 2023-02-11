@@ -23,9 +23,11 @@ class CompaniesReviewsController < ApplicationController
   def create
     @companies_review = CompaniesReview.new(companies_review_params)
     @companies_review.user_id = current_user.id
+   
     respond_to do |format|
       if @companies_review.save
-        format.html { redirect_to companies_review_url(@companies_review), notice: "Companies review was successfully created." }
+        url = "/companies/" + @companies_review.company_id.to_s
+        format.html { redirect_to url, notice: 'Book review was successfully created.' }
         format.json { render :show, status: :created, location: @companies_review }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -65,6 +67,6 @@ class CompaniesReviewsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def companies_review_params
-      params.require(:companies_review).permit(:user_id, :companies_id, :review)
+      params.require(:companies_review).permit(:user_id, :company_id, :review)
     end
 end

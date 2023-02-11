@@ -29,11 +29,17 @@
   <strong>Description:</strong>
   <%= @company.description %>
 </p>
+<h2>Review List</h2>
+<ul>
+  <% @company.companies_review.each do |companies_review|%>
+    <li><%= companies_review.review %>(<i><%= companies_review.user_id %></i>)</li>
+  <% end %>
+</ul>
 <h2>Review Form</h2>
  <%= form_with(model: @companies_review, local:true) do |form| %>
  <div class="field">
     <%= form.text_area:review %>
-    <%= form.hidden_field :companies_id, :value => @company.id %>
+    <%= form.hidden_field :company_id, :value => @company.id %>
  </div>
  <div class="actions">
      <%= form.submit %>
