@@ -32,7 +32,7 @@
 <h2>Review List</h2>
 <ul>
   <% @company.companies_review.each do |companies_review|%>
-    <li><%= companies_review.review %>(<i><%= companies_review.user_id %></i>)</li>
+    <li><%= companies_review.review %>(<i><%= companies_review.user.name %></i>)</li>
   <% end %>
 </ul>
 <h2>Review Form</h2>
