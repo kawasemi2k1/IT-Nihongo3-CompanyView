@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<% if user_signed_in?%>
 <h1>会社</h1>
 <% if current_user.admin && current_user.admin%>
 <%= link_to '会社作成', new_company_path %>
@@ -22,16 +22,38 @@
         <td><%= company.location %></td>
         <td><a href=<%= company.website_link %> class="link-primary link-white-1"><%= company.website_link %></a></td>
         <% if current_user && current_user.admin%>
-        <td><%= link_to 'Show', company %></td>
-        <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '表示', company %></td>
+        <td><%= link_to '編集', edit_company_path(company) %></td>
+        <td><%= link_to '削減', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
          <% else %>
-         <td><%= link_to 'Show', company %></td>
+         <td><%= link_to '表示', company %></td>
          <% end %>
       </tr>
        
     <% end %>
   </tbody>
 </table>
+ <% else %>
+ <table class="table table-hover">
+  <thead class="">
+    <tr>
+      <th>名</th>
+      <th>場所</th>
+      <th>ウェブサイトリンク</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @companies.each do |company| %>
+  <tr>
+  <td><%= company.name %></td>
+<td><%= company.location %></td>
+ <td><a href=<%= company.website_link %> class="link-primary link-white-1"><%= company.website_link %></a></td>
+  <td><%= link_to '表示', company %></td>
+  </tr>
+  </tbody>
+ <% end %>
+  <% end %>
 
 <br>

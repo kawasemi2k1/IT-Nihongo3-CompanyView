@@ -46,8 +46,11 @@
  </div>
  <% end %>
 <% if user_signed_in? %>
-<%= link_to 'Back', companies_path %>
- <% else %>
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
+<% if current_user.admin && current_user.admin %>
+<%= link_to '編集', edit_company_path(@company) %> |
+
+<% else %>
  <% end %>
+ <% else %>
+ <% end %>
+  <%= link_to '戻る', companies_path %>

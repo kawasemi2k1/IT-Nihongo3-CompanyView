@@ -21,24 +21,24 @@
           <% else %>
       <%= link_to "サインイン", new_user_session_path %>
       <%= link_to "ユーザ登録", new_user_registration_path %>
-           
+       <%= link_to "会社表示" ,  companies_path %>  
       
           <% end %>
           <%= yield %> -->
     
     <nav class="navbar navbar-toggler navbar-dark bg-primary">
-        <%= link_to "Home", root_path, class: "nav-link" %>
+        <%= link_to "ホーム", root_path, class: "nav-link" %>
       <% if user_signed_in? %>
         <%= link_to "会社表示", companies_path, class: "nav-link navbar-brand" %>
       <%= link_to current_user.name, user_show_path %>
          <% if current_user && current_user.admin%>
-             <a href="/admin/index", class: "nav-link">Admin page</a>
+             <a href="/admin/index", class: "nav-link">Admin ページ</a>
          <% end %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
           <% else %>
       <%= link_to "サインイン", new_user_session_path, class: "nav-link" %>
       <%= link_to "ユーザ登録", new_user_registration_path, class: "nav-link" %>
-           
+     <%= link_to "会社表示" , companies_path %>  
       
           <% end %>
     </nav>
