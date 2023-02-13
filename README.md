@@ -9,7 +9,7 @@
 4. rake db:seed
 5. rails s
 
-#Create Admin
+# Create Admin
 1. Create a new account
 2. cancel server by ctrl C 
 3. rails c
